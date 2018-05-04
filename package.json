@@ -1,7 +1,7 @@
 {
   "name": "docfy",
   "version": "1.0.0",
-  "description": "NodeJS application for project documentation storage.",
+  "description": "NodeJS application for storing project documentation.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,13 +10,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
     "express": "^4.16.3",
-    "nodemon": "^1.17.3"
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.3",
+    "nodemon": "^1.17.3",
+    "nunjucks": "^3.1.2",
+    "sequelize": "^4.37.6"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0"
+    "eslint-plugin-import": "^2.11.0",
+    "sequelize-cli": "^4.0.0"
   }
 }
