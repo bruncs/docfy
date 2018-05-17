@@ -31,3 +31,5 @@ app.use(flash());
 app.use('/', routes);
 
 app.listen(3000);
+
+// Continuar da aula "Error handler e middleware guest"
