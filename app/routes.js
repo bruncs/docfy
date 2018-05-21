@@ -7,6 +7,7 @@ const guestMiddleware = require('./middlewares/guest');
 
 const authController = require('./controllers/authController');
 const dashboardController = require('./controllers/dashboardController');
+const projectController = require('./controllers/projectController');
 
 routes.use((req, res, next) => {
   res.locals.flashSuccess = req.flash('success');
@@ -24,8 +25,17 @@ routes.get('/signout', authController.signout);
 routes.post('/register', authController.register);
 routes.post('/authenticate', authController.authenticate);
 
+/**
+ * Dashboard
+ */
 routes.use('/app', authMiddleware);
 routes.get('/app/dashboard', dashboardController.index);
+
+/**
+ * Projects
+ */
+routes.get('/app/projects/:id', projectController.show);
+routes.post('/app/projects/create', projectController.store);
 
 /**
  * Error Handling

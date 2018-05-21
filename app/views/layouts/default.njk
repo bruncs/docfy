@@ -11,12 +11,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
   </head>
   <body>
-  {% include 'partials/flash.njk' %}
-
-  {% block body %}
-  {% endblock %}
+    {% include 'partials/flash.njk' %}
+    {% block body %}
+    {% endblock %}
   </body>
 </html>

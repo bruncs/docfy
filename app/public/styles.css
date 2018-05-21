@@ -151,6 +151,11 @@ textarea:focus {
   color: #fff;
 }
 
+.title {
+  color: #fff;
+  text-decoration: none;
+}
+
 .wrapper #header .container {
   display: flex;
   flex-direction: row;
