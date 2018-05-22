@@ -8,6 +8,7 @@ const guestMiddleware = require('./middlewares/guest');
 const authController = require('./controllers/authController');
 const dashboardController = require('./controllers/dashboardController');
 const projectController = require('./controllers/projectController');
+const sectionController = require('./controllers/sectionController');
 
 routes.use((req, res, next) => {
   res.locals.flashSuccess = req.flash('success');
@@ -36,6 +37,13 @@ routes.get('/app/dashboard', dashboardController.index);
  */
 routes.get('/app/projects/:id', projectController.show);
 routes.post('/app/projects/create', projectController.store);
+
+/**
+ * Sections
+ */
+routes.get('/app/projects/:projectId/sections/:id', sectionController.show);
+routes.post('/app/projects/:projectId/sections/create', sectionController.store);
+routes.get('/app/projects/:projectId/sections/:id/edit', sectionController.edit);
 
 /**
  * Error Handling

@@ -3,9 +3,9 @@ const { Project, Section } = require('../models');
 module.exports = {
   async store(req, res, next) {
     try {
-      const projects = await Project.create({ ...req.body, UserId: req.session.user.id });
+      const project = await Project.create({ ...req.body, UserId: req.session.user.id });
 
-      req.flash('success', `Project "${projects.title}" successfully created!`);
+      req.flash('success', `Project "${project.title}" successfully created!`);
 
       return res.redirect('/app/dashboard');
     } catch (err) {
@@ -27,6 +27,7 @@ module.exports = {
         user: req.session.user,
         project,
         sections,
+        activeSection: sections[0],
       });
     } catch (err) {
       return next(err);

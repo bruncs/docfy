@@ -22,16 +22,15 @@
               <button type="submit" class="btn"><img src="/img/plus.svg"></button>
             </form>
           </nav>
-          <article>
-            {% if activeSection %}
-              <div class="project-header">
-                <h1>{{ activeSection.title }}</h1>
-                <a href="/app/projects/{{ project.id }}/sections/{{activeSection.id}}/edit" id="edit">Edit section</a>
-                <a href="/app/projects/{{ project.id }}/sections/{{activeSection.id}}/remove" id="remove">Delete section</a>
-              </div>
-              <p>{{ activeSection.content }}</p>
-            {% endif %}
-          </article>
+          <div id="edit-form">
+            <form method="POST" action="">
+              <input  type="text" name="title" placeholder="Section Title" value="{{ activeSection.title }}"></input>
+              <textarea name="content" class="mde" placeholder="Section Content">{{ activeSection.content }}</textarea>
+
+              <button type="submit">SAVE SECTION</button>
+              <a href="#" class="btn btn-cancel">CANCEL</a>
+            </form>
+          </div>
         </section>
       </div>
     </section>
