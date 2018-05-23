@@ -3,6 +3,11 @@ const { Project, Section } = require('../models');
 module.exports = {
   async store(req, res, next) {
     try {
+      if (!req.body.title) {
+        req.flash('error', 'Invalid project name');
+
+        return res.redirect('/app/dashboard');
+      }
       const project = await Project.create({ ...req.body, UserId: req.session.user.id });
 
       req.flash('success', `Project "${project.title}" successfully created!`);
@@ -29,6 +34,18 @@ module.exports = {
         sections,
         activeSection: sections[0],
       });
+    } catch (err) {
+      return next(err);
+    }
+  },
+
+  async destroy(req, res, next) {
+    try {
+      await Project.destroy({ where: { id: req.params.projectId } });
+
+      req.flash('success', 'Project deleted.');
+
+      return res.redirect('/app/dashboard/');
     } catch (err) {
       return next(err);
     }

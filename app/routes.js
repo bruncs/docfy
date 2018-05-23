@@ -37,6 +37,7 @@ routes.get('/app/dashboard', dashboardController.index);
  */
 routes.get('/app/projects/:id', projectController.show);
 routes.post('/app/projects/create', projectController.store);
+routes.get('/app/projects/:projectId/destroy', projectController.destroy);
 
 /**
  * Sections
@@ -44,6 +45,8 @@ routes.post('/app/projects/create', projectController.store);
 routes.get('/app/projects/:projectId/sections/:id', sectionController.show);
 routes.post('/app/projects/:projectId/sections/create', sectionController.store);
 routes.get('/app/projects/:projectId/sections/:id/edit', sectionController.edit);
+routes.put('/app/projects/:projectId/sections/:id', sectionController.update);
+routes.delete('/app/projects/:projectId/sections/:id', sectionController.destroy);
 
 /**
  * Error Handling

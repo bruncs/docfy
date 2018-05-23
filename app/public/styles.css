@@ -28,6 +28,15 @@ textarea:focus {
   outline: 0;
 }
 
+.btnRemoveSection {
+  background: #fff;
+  margin: 0 0 0 10px;
+  color: #e06666;
+  text-decoration: none;
+  font-size: 14px;
+  border: 0px;
+}
+
 .btn {
   height: 40px;
   color: #fff;

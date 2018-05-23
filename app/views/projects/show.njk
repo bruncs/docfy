@@ -7,7 +7,7 @@
         <header>
           <h2>{{ project.title }}</h2>
           <div class="addon">
-            <a href="" class="btn btn-danger">Delete project</a>
+            <a href="/app/projects/{{ project.id }}/destroy" class="btn btn-danger">Delete project</a>
           </div>
         </header>
         <section id="content">
@@ -27,7 +27,9 @@
               <div class="project-header">
                 <h1>{{ activeSection.title }}</h1>
                 <a href="/app/projects/{{ project.id }}/sections/{{activeSection.id}}/edit" id="edit">Edit section</a>
-                <a href="/app/projects/{{ project.id }}/sections/{{activeSection.id}}/remove" id="remove">Delete section</a>
+                <form action="/app/projects/{{ project.id }}/sections/{{activeSection.id}}?_method=delete" method="POST">
+                  <button type="submit" class="btnRemoveSection">Delete section</button>
+                </form>
               </div>
               <p>{{ activeSection.content }}</p>
             {% endif %}
